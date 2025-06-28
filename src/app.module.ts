@@ -1,16 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { UserModule } from './user/user.module';
-import { MongooseModule } from '@nestjs/mongoose';
-import { UserService } from './user/user.service';
-
+import { BotModule } from './bot/bot.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), UserModule,
-        MongooseModule.forRoot('mongodb://localhost:27017/az'),
-
-  ],
-
-  // providers: [UserService] ,
+  imports: [ConfigModule.forRoot(), BotModule],
 })
 export class AppModule {}
